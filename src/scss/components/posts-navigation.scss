@@ -1,0 +1,21 @@
+.posts-navigation {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: auto;
+  width: 140px;
+  background-color: $extra-dark;
+  color: $light;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 30px;
+  z-index: 1;
+
+  .navlink {
+    display: inline-block;
+    margin: 8px 0;
+  }
+}

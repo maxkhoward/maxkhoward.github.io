@@ -1,0 +1,28 @@
+.navigation {
+  background: $dark;
+  color: $light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0;
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .nav-left {
+    padding-left: 30px;
+  }
+
+  .nav-right {
+    padding-right: 30px;
+  }
+
+  .navlink {
+    margin: 0 10px;
+
+    &:last-child { margin-right: 0; }
+    &:first-child { margin-left: 0; }
+  }
+}

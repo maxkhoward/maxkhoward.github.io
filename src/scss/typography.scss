@@ -1,0 +1,58 @@
+body {
+  font-family: 'Raleway', sans-serif;
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Merriweather', serif;
+    line-height: 2;
+    margin-top: 0;
+  }
+
+  h4,h5,h6 {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  h5 { font-size: 20px; }
+
+  p {
+    font-size: 16px;
+    line-height: 2;
+    margin-bottom: 1em;
+
+    &.small {
+      font-size: 10px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a.link {
+    color: $accent;
+    position: relative;
+    text-decoration: none;
+
+    &.navlink {
+      color: $light;
+    }
+
+    &:after {
+      position: absolute;
+      content: "";
+      bottom: -3px;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background-color: $accent;
+      transition: width 0.3s, color 0.3s;
+    }
+
+    &:hover {
+      color: $accent;
+
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
