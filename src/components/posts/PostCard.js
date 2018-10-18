@@ -11,6 +11,8 @@ class PostCard extends Component {
     super(props);
     this.getBG = this.getBG.bind(this);
     this.getCardClassnames = this.getCardClassnames.bind(this);
+    this.showPost = this.showPost.bind(this);
+    this.showHidePosts = this.showHidePosts.bind(this);
     this.state = {
       showPost: false
     };
@@ -43,19 +45,27 @@ class PostCard extends Component {
     return( classnames );
   }
 
+  showHidePosts() {
+    this.props.showHidePosts;
+  }
+
   showPost() {
+    console.log("showPost");
+    this.showHidePosts();
     history.push('/#/posts/' + this.props.postSlug);
     this.setState({ showPost: true });
   }
 
   render() {
     console.log(this.state.showPost);
-    if (this.state.showPost)
+    if (this.state.showPost) {
+      console.log(history);
       return ( <Redirect to= {'/posts/' + this.props.postSlug } /> );
+    }
     else
       return (
 
-          <div className={ this.getCardClassnames() } onClick={ e => this.showPost() }>
+          <div className={ this.getCardClassnames() } onClick={ this.showPost }>
             { this.props.postType === 'featured' ?
               <div className="post-card-content" style={ this.getBG(this.props.postImage) }>
                 <img className="post-image" src={this.props.postImage} />
@@ -101,7 +111,8 @@ PostCard.propTypes = {
   postImage: PropTypes.string,
   postSummary: PropTypes.string,
   postExcerpt: PropTypes.element,
-  postType: PropTypes.string
+  postType: PropTypes.string,
+  showHidePosts: PropTypes.function
 };
 
 export default PostCard;

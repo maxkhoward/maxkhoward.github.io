@@ -2,18 +2,24 @@ body {
   font-family: 'Raleway', sans-serif;
 
   h1,h2,h3,h4,h5,h6 {
-    font-family: 'Merriweather', serif;
-    line-height: 2;
+    font-family: 'Raleway', serif;
+    line-height: 1.4;
     margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 100;
+
+    span {
+      color: $accent;
+    }
   }
 
-  h4,h5,h6 {
-    font-family: 'Raleway', sans-serif;
+  h2 {
+    font-size: 20px;
   }
 
-  h5 { font-size: 20px; }
+  h5 { font-size: 18px; }
 
-  p {
+  p, li {
     font-size: 16px;
     line-height: 2;
     margin-bottom: 1em;
@@ -24,6 +30,11 @@ body {
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    @media screen and (max-width: 920px) {
+      font-size: 14px;
+      line-height: 1.5;
     }
   }
 

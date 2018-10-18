@@ -2,7 +2,7 @@
   -webkit-box-shadow: 0px 10px 31px 3px rgba(187,187,187,1);
   -moz-box-shadow: 0px 10px 31px 3px rgba(187,187,187,1);
   box-shadow: 0px 10px 31px 3px rgba(187,187,187,1);
-  margin: 0 20px 40px 20px;
+  margin: 0 20px;
   background-color: white;
   color: $dark;
   display: flex;
@@ -35,14 +35,32 @@
     height: 180px;
     background-size: cover;
 
+    .back {
+      width: 20px;
+      position: absolute;
+      left: 40px;
+      top: 40px;
+      color: $light;
+      cursor: pointer;
+
+      &:hover {
+        color: $accent;
+      }
+    }
+
     .post-title-elements {
       padding: 40px;
       position: absolute;
       bottom: 0;
       left: 0;
+      top: 0;
+      right: 0;
       background: rgba(0,0,0,0.5);
       margin-bottom: 0;
       color: $light;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
 
       .post-title {
         line-height: 1;
@@ -64,5 +82,47 @@
       margin: 10px auto 0 auto;
       display: block;
     }
+
+    .video {
+      width: 100%;
+    }
   }
+
+  .post-card-meta {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid $gray-light;
+  }
+
+  @media screen and (max-width: 920px) {
+    margin-left: 0;
+    margin-right: 0;
+
+    .banner-image {
+      height: 90px;
+
+      .post-title-elements {
+        padding: 20px;
+
+        .back {
+          top: 20px;
+          left: 20px;
+        }
+
+        .post-title {
+          font-size: 22px;
+        }
+      }
+    }
+
+    .post-content {
+      padding: 20px;
+
+
+    }
+  }
+
+  @media screen and (max-width: 500px) {}
 }

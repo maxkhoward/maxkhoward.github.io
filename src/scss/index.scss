@@ -15,16 +15,22 @@ body {
   // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555975', endColorstr='#4e3136',GradientType=0 ); /* IE6-9 */
 
   .page-content {
+    // position: absolute;
     padding: 40px 40px 0 40px;
   }
 
-  .fade-enter {
-    opacity: 0;
-    z-index: 1;
+  .page-content.slide-enter {
+    transform: translateY(100vh);
+    transition: transform 300ms ease-in-out;
   }
 
-  .fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 250ms ease-in;
+  .page-content.slide-exit {
+    transform: translateY(100vh);
+    transition: transform 300ms ease-in-out;
+  }
+
+  .page-content.slide-enter-done {
+    transform: translateY(0);
+    transition: transform 300ms ease-in-out;
   }
 }

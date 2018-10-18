@@ -24,17 +24,27 @@ class Stuff extends Component {
     const { hits, isLoading } = this.state;
     if (isLoading)
       return (
-        <h2>Is Loading</h2>
+        <div className="page-content stuff">
+          <h2>Is Loading</h2>
+        </div>
       );
     else
       return (
-        <ul>
-          {hits.map(hit =>
-            <li key={hit.objectID}>
-              <a href={hit.url}>{hit.title}</a>
-            </li>
-          )}
-        </ul>
+        <div className="page-content stuff">
+          <p>things</p>
+          <p>things</p>
+          <p>things</p>
+          <p>things</p>
+          <p>things</p>
+          <p>things</p>
+          <ul>
+            {hits.map(hit =>
+              <li key={hit.objectID}>
+                <a href={hit.url}>{hit.title}</a>
+              </li>
+            )}
+          </ul>
+        </div>
       );
   }
 }

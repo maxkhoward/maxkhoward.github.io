@@ -1,15 +1,25 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import PostCard from './PostCard';
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 class Container extends Component {
   constructor(props){
     super(props);
     this.renderPosts = this.renderPosts.bind(this);
+    this.keyGen = this.keyGen.bind(this);
+    this.i = 0;
   }
 
-  renderPosts(catID) {
+  keyGen() {
+    this.i++
+    return (this.i);
+  }
+
+  renderPosts(catID, showHidePosts) {
     const renderedPosts = [];
+
+
     this.props.posts.map(function(post){
       if (post.categories.includes(catID) || catID === ""){
         renderedPosts.push(
@@ -26,6 +36,7 @@ class Container extends Component {
             postSummary = { post.acf.summary }
             postExcerpt = { post.excerpt.rendered }
             postType = { post.acf.type }
+            showHidePosts = { showHidePosts }
           />
         );
       }
@@ -33,12 +44,21 @@ class Container extends Component {
     return (renderedPosts);
   }
 
+  showHidePosts() {
+    this.props.showHidePosts();
+  }
+
   render() {
     return(
       <div className="page-content">
-        <h1 className="page-title">{ this.props.catName }</h1>
+        <div className="page-title">
+          <h1 className="title">max<span>k</span>howard</h1>
+          <h2 className="subtitle">{ this.props.catName }</h2>
+        </div>
         <div className="post-cards">
-          { this.renderPosts(this.props.catID) }
+
+              { this.renderPosts(this.props.catID, this.props.showHidePosts) }
+
         </div>
       </div>
     );
@@ -49,7 +69,8 @@ Container.propTypes = {
   catName: PropTypes.string,
   catSlug: PropTypes.string,
   catID: PropTypes.string,
-  posts: PropTypes.array
+  posts: PropTypes.array,
+  showHidePosts: PropTypes.function
 };
 
 export default Container;

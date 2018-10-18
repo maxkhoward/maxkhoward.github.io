@@ -4,11 +4,14 @@ import {
   NavLink,
   HashRouter
 } from "react-router-dom";
+import classNames from 'classnames';
+import history from '../../history';
 
 class Nav extends Component {
   constructor(props) {
     super(props);
     this.renderNavLinks = this.renderNavLinks.bind(this);
+    this.setPath = this.setPath.bind(this);
   }
 
   renderNavLinks() {
@@ -17,31 +20,38 @@ class Nav extends Component {
     console.log(this.props.categories.length);
     for (var i=0; i < this.props.categories.length; i++) {
       navLinks.push(
-        <NavLink
+        <a
           className='navlink link'
           key={ i + 1 }
-          to={ '/posts/' + this.props.categories[i].slug }
+          onClick={ this.setPath(this.props.categories[i].slug) }
         >
           { this.props.categories[i].name }
-        </NavLink>
+        </a>
       );
     }
     navLinks.push(
-      <NavLink
+      <a
         className='navlink link'
         key={ 0 }
-        to={ '/posts' }
+        onClick={ this.setPath('') }
       >
         { "All" }
-      </NavLink>
+      </a>
     )
     return (navLinks);
+  }
+
+  setPath(subPath) {
+    return function () {
+      console.log("setting Path");
+      history.push('/#/posts/' + subPath);
+    }
   }
 
   render() {
     return(
       <HashRouter>
-        <nav className="posts-navigation">
+        <nav className={ classNames('posts-navigation', { 'nav-hidden': this.props.hidden }, { 'nav-show': !this.props.hidden }) }>
           { this.renderNavLinks() }
         </nav>
       </HashRouter>

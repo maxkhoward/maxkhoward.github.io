@@ -1,136 +1,265 @@
-.posts-content {
-  @import './post.scss';
-  @import './posts-navigation.scss';
+@import './post-animations.scss';
 
-  .posts {
-    margin-left: 200px;
+.posts-page {
+  .posts-content {
+    @import './post.scss';
+    @import './posts-navigation.scss';
 
-    .page-content {
-      margin-left: -20px;
-      margin-right: -20px;
-      width: calc(100% - 60px);
+    .posts {
+      padding-left: 200px;
 
-      &.full-post {
-      }
-    }
+      .page-content {
+        background-image: url(https://i.imgur.com/ptEnIVK.jpg);
+        background-size: calc(100% - 200px);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        position: relative;
+        padding-bottom: 40px;
 
-    .post-cards {
-      display: flex;
-      flex-wrap: wrap;
-
-      .post-card {
-        -webkit-box-shadow: 0px 10px 31px 3px rgba(187,187,187,1);
-        -moz-box-shadow: 0px 10px 31px 3px rgba(187,187,187,1);
-        box-shadow: 0px 10px 31px 3px rgba(187,187,187,1);
-
-        width: 300px;
-        height: 400px;
-        margin: 0 20px 40px 20px;
-        background-color: $light;
-        color: $dark;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        .post-card-content {
-          margin: 0 15px;
-          padding: 15px 0;
-          background-size: cover;
-          height: 370px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          border-bottom: 1px solid $gray-light;
-
-          .post-image {
-            visibility: hidden;
-            width: 100%;
-            height: auto;
-          }
-
-          .post-mini-image {
-            height: 50px;
-            width: 50px;
-            border-radius: 100px;
-            object-fit: cover;
-            margin-bottom: 10px;
-            float: left;
-            margin-right: 10px;
-          }
-
-          .title-elements {
-            margin-bottom: 10px;
-            margin-top: 10px;
-
-            .post-title {
-              line-height: 1.2;
-              margin-bottom: 0;
-            }
-
-            .small {
-              line-height: 1;
-              margin-top: 6px;
-            }
-          }
-
-          .post-excerpt {
-            font-size: 12px;
-            clear: both;
-
-            p {
-              font-size: 12px;
-
-              &.link-more {
-                display: none;
-              }
-            }
-          }
-
-          .hover-content {
-            display: none;
-          }
+        &.full-post {
         }
 
-        .post-card-meta {
-          padding: 15px;
+        .page-title {
+          height: calc(100vh - 140px);
+          text-align: center;
           display: flex;
-          justify-content: space-between;
-          font-size: 10px;
-          text-transform: uppercase;
+          flex-direction: column;
+          justify-content: center;
+          padding-bottom: 40px;
         }
+      }
 
-        &.featured-card {
+      .post-cards {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -20px;
+        margin-right: -20px;
+
+        .post-card {
+          -webkit-box-shadow: 0px 10px 31px 3px rgba(0,0,0,0.5);
+          -moz-box-shadow: 0px 10px 31px 3px rgba(0,0,0,0.5);
+          box-shadow: 0px 10px 31px 3px rgba(0,0,0,0.5);
+          cursor: pointer;
+          width: 300px;
+          height: 400px;
+          margin: 0 20px 40px 20px;
+          background-color: $light;
+          color: $dark;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          transition: box-shadow 0.3s;
+
+          &:hover {
+            box-shadow: 0px 3px 10px 3px rgba(0,0,0,0.5);
+          }
+
           .post-card-content {
-            position: relative;
-            padding: 0;
+            margin: 0 15px;
+            padding: 15px 0;
+            background-size: cover;
+            height: 370px;
             overflow: hidden;
             text-overflow: ellipsis;
-            padding: 10px 0;
-            margin: 0;
+            border-bottom: 1px solid $gray-light;
 
-            .post-card-info {
-              position: absolute;
-              bottom: 0;
-              padding: 60px 20px 20px 20px;
-              width: calc(100% - 40px);
-              color: $light;
-              /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+100 */
-              background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%); /* FF3.6-15 */
-              background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
-              background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+            .post-image {
+              visibility: hidden;
+              width: 100%;
+              height: auto;
+            }
 
-              h5, p {
-                margin: 0;
+            .post-mini-image {
+              height: 50px;
+              width: 50px;
+              border-radius: 100px;
+              object-fit: cover;
+              margin-bottom: 10px;
+              float: left;
+              margin-right: 10px;
+            }
+
+            .title-elements {
+              margin-bottom: 10px;
+              margin-top: 10px;
+
+              .post-title {
+                line-height: 1.2;
+                margin-bottom: 0;
               }
 
-              h5 {
-                margin-bottom: 10px;
+              .small {
                 line-height: 1;
+                margin-top: 6px;
               }
+            }
+
+            .post-excerpt {
+              font-size: 12px;
+              clear: both;
 
               p {
                 font-size: 12px;
-                line-height: 1.3;
+
+                &.link-more {
+                  display: none;
+                }
+              }
+            }
+
+            .hover-content {
+              display: none;
+            }
+          }
+
+          .post-card-meta {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            text-transform: uppercase;
+          }
+
+          &.featured-card {
+            .post-card-content {
+              position: relative;
+              padding: 0;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding: 10px 0;
+              margin: 0;
+
+              .post-card-info {
+                position: absolute;
+                bottom: 0;
+                padding: 60px 20px 20px 20px;
+                width: calc(100% - 40px);
+                color: $light;
+                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+100 */
+                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+                h5, p {
+                  margin: 0;
+                }
+
+                h5 {
+                  margin-bottom: 10px;
+                  line-height: 1;
+                }
+
+                p {
+                  font-size: 12px;
+                  line-height: 1.3;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 920px) {
+        padding-left: 0;
+
+        .page-content {
+          padding-left: 20px;
+          padding-right: 20px;
+
+          .post-cards {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -2%;
+            margin-right: -2%;
+
+            .post-card {
+              flex: 46%;
+              width: 46%;
+              margin-left: 2%;
+              margin-right: 2%;
+              margin-bottom: 4%;
+              height: auto;
+
+              .post-card-content {
+                height: auto;
+                flex: 1;
+
+                .post-card-info {
+                  .post-excerpt {
+                    p {
+                      line-height: 1.5;
+                    }
+                  }
+                }
+              }
+
+              &:nth-child(2n){
+                //padding-right: 5px;
+              }
+
+              &:nth-child(2n+1){
+                //padding-left: 5px;
+              }
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        .page-content {
+          background-size: 100%;
+          .post-cards {
+
+            .post-card {
+
+              &.featured-card {
+                .post-card-content {
+                  .post-card-info {
+                    max-height: 200px;
+                    width: calc(100% - 20px);
+                    padding: 60px 10px 10px 10px;
+                    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 60%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                  }
+                }
+              }
+
+              .post-card-content {
+
+                .post-card-info {
+                  max-height: 200px;
+
+                  .post-mini-image {
+                    float: none;
+                  }
+
+                  .post-excerpt {
+
+                  }
+
+                  .title-elements {
+                    margin-top: 0;
+
+                    .post-title {
+                      font-size: 15px;
+                    }
+
+                    .small {
+                      display: none;
+                    }
+                  }
+                }
+              }
+
+              &:nth-child(2n){
+                //padding-right: 5px;
+              }
+
+              &:nth-child(2n+1){
+                //padding-left: 5px;
               }
             }
           }

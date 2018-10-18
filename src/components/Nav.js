@@ -4,6 +4,7 @@ import {
   NavLink,
   HashRouter
 } from "react-router-dom";
+import classNames from 'classnames';
 
 class Nav extends Component {
   constructor(props) {
@@ -14,12 +15,13 @@ class Nav extends Component {
   renderNavLinks() {
     const navLinks = [];
     for (var i=0; i < this.props.pages.length; i++) {
+      console.log(this.props.pages[i].slug)
       navLinks.push(
         <NavLink
           className='navlink link'
           key={ i }
           to={ this.props.pages[i].slug } >
-          { this.props.pages[i].text }
+          <i className={ classNames("fas", this.props.pages[i].icon) }></i>
         </NavLink>
       );
     }
@@ -31,7 +33,9 @@ class Nav extends Component {
       <HashRouter>
         <nav className="navigation">
           <div className="nav-left">
-            <NavLink className="navlink" to="/">Home</NavLink>
+            <NavLink className="navlink link" to="/">
+              <img className="logo" src="https://i.imgur.com/Zu9tTw9.png" />
+            </NavLink>
           </div>
           <div className="nav-right">
             { this.renderNavLinks() }
