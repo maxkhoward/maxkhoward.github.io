@@ -1,0 +1,45 @@
+.posts-page {
+  .posts-content {
+    .posts-navigation.nav-hidden {
+        left: -200px;
+        transition: left 300ms ease-in-out;
+    }
+
+    .posts-navigation.nav-show {
+        left: 0;
+        transition: left 300ms ease-in-out;
+    }
+  }
+}
+
+.posts-page {
+
+}
+
+.posts-page.slide-enter, .posts-page, .posts-page.slide-exit {
+  .post-card {
+    // transition: color 10000ms ease-in-out;
+    // background-color: red !important;
+  }
+}
+
+.posts-page.slide-enter-done {
+  .post-card {
+    // transition: color 10000ms ease-in-out;
+    // background-color: blue !important;
+  }
+}
+
+.posts {
+  .post-card {
+    transition: transform 3s ease-in-out;
+    transform: translateY(100vh);
+  }
+}
+
+.posts.showPosts {
+  .post-card {
+    transition: transform 3s ease-in-out;
+    transform: translateY(0);
+  }
+}

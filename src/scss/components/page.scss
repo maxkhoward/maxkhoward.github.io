@@ -1,0 +1,174 @@
+.page-content.reg-page {
+  text-align: center;
+  padding-bottom: 80px;
+
+  .profile-image {
+    border: 4px solid $dark;
+    height: 200px;
+    width: 200px;
+    border-radius: 400px;
+  }
+
+  .subtitle {
+    margin-top: 0;
+  }
+
+  .bio {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+  .sub-section-title {
+    margin-top: 80px;
+    font-weight: 800;
+  }
+
+  .skills {
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+    .skill {
+      position: relative;
+
+      .reveal {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        transition: opacity 0.5s, visibility 0.5s;
+        background-color: white;
+        border: 2px solid $dark;
+        z-index: 9;
+        width: 260px;
+        left: -111px;
+        padding: 20px;
+
+        &.show {
+          //display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .reveal-title {
+          font-size: 14px;
+          font-weight: 800;
+        }
+
+        .reveal-description {
+          font-size: 12px;
+        }
+
+        .close {
+          cursor: pointer;
+          position: absolute;
+          top: 15px;
+          left: 15px;
+          font-size: 10px;
+        }
+
+        @media screen and (max-width: 800px){
+          position: fixed;
+          width: 300px;
+          left: calc(50% - 172px);
+          top: 100px;
+        }
+
+        @media screen and (max-width: 800px){
+          position: fixed;
+          max-height: 56vh;
+          width: calc(90% - 40px);
+          left: 5%;
+          overflow-y: scroll;
+        }
+      }
+
+      i.skill-icon {
+        width: 80px;
+        margin-top: 20px;
+        color: $dark;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $accent;
+        }
+      }
+    }
+
+    .skills-note {
+      position: absolute;
+      width: 200px;
+      height: auto;
+      top: -100px;
+      right: 0px;
+
+      @media screen and (max-width: 590px) {
+        position: relative;
+        width: 100%;
+        flex: 100%;
+        height: 100px;
+        top: auto;
+        object-fit: contain;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .contact-box {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-top: 40px;
+
+    .contact-method {
+      width: 200px;
+      height: 200px;
+
+      i {
+        font-size: 70px;
+        border: 8px solid $dark;
+        padding: 20px;
+        border-radius: 200px;
+        transition: 0.3s color, 0.3s border-color, 0.3s background;
+
+        &:hover {
+          cursor: pointer;
+          background: $accent;
+          color: $light;
+          border-color: $accent;
+        }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+
+      .contact-method {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 40px;
+
+        i {
+          font-size: 35px;
+          border: 4px solid $dark;
+        }
+      }
+    }
+
+    .contact-detail {
+      opacity: 0;
+      transition: opacity 1s;
+
+      &.visible {
+        opacity: 1;
+      }
+    }
+  }
+}
