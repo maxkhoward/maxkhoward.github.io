@@ -1,11 +1,8 @@
 @import 'settings.scss';
 @import 'typography.scss';
-@import 'resources.scss';
 
 @import './components/nav.scss';
 @import './components/posts.scss';
-
-@import './components/page.scss';
 
 body {
   padding: 60px 0 0 0;
@@ -18,27 +15,16 @@ body {
   // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555975', endColorstr='#4e3136',GradientType=0 ); /* IE6-9 */
 
   .page-content {
-    // position: absolute;
-    background: $light;
     padding: 40px 40px 0 40px;
-    width: calc(100% - 80px);
   }
 
-  .page-content.slide-enter {
-    position: absolute;
-    top: 1000px;
-    transition: top 300ms ease-in-out;
+  .fade-enter {
+    opacity: 0;
+    z-index: 1;
   }
 
-  .page-content.slide-exit {
-    position: absolute;
-    top: 1000px;
-    transition: top 300ms ease-in-out;
-  }
-
-  .page-content.slide-enter-done {
-    position: absolute;
-    top: 60px;
-    transition: top 300ms ease-in-out;
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 250ms ease-in;
   }
 }
