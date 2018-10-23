@@ -26,6 +26,7 @@ class Post extends Component {
 
   goBack() {
     return function(){
+      console.log(history);
       history.goBack();
     }
   }

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Nav from "./components/Nav";
 import Home from "./Home";
-import Stuff from "./Stuff";
+import About from "./About";
 import Contact from "./Contact";
 import Posts from "./components/posts/Posts";
 
@@ -28,9 +28,9 @@ function renderPageRoutes() {
       "icon": "fa-info"
     },
     {
-      "slug": "/stuff",
-      "text": "Stuff",
-      "component": Stuff,
+      "slug": "/about",
+      "text": "About",
+      "component": About,
       "icon": "fa-info"
     },
     {
@@ -89,9 +89,9 @@ class Main extends Component {
     super(props);
     this.navLinks = [
       {
-        "slug": "/stuff",
-        "text": "Stuff",
-        "component": Stuff,
+        "slug": "/about",
+        "text": "about",
+        "component": About,
         "icon": "fa-info"
       },
       {

@@ -40,13 +40,14 @@ class Posts extends Component {
   componentDidMount() {
     fetch(API + CATEGORIES)
       .then(response => response.json())
-      .then(data => this.setState({ categories: data, isLoading: false }))
+      .then(data => this.setState({ categories: data }))
+      .then(this.showNav())
       .catch(function (err) {
         return err;
       });
     fetch(API + POSTS)
       .then(response => response.json())
-      .then(data => this.setState({ posts: data, isLoading: false }))
+      .then(data => this.setState({ posts: data }))
       .then(this.showNav())
       .catch(function (err) {
         return err;
@@ -82,10 +83,15 @@ class Posts extends Component {
   }
 
   showNav() {
-    this.timeoutId = setTimeout(function () {
-        this.setState({showNav: true});
-        this.showHidePosts();
-    }.bind(this), 300);
+    if (this.state.categories != [] && this.state.posts != []){
+      this.timeoutId = setTimeout(function () {
+          this.setState({isLoading: false});
+      }.bind(this), 300);
+      this.timeoutId = setTimeout(function () {
+          this.setState({showNav: true});
+          this.showHidePosts();
+      }.bind(this), 300);
+    }
   }
 
   showHidePosts() {
@@ -127,8 +133,13 @@ class Posts extends Component {
     if (this.state.isLoading)
       return (
         <div className="posts-page" id="posts-page">
-          <div id="posts" className="loading-posts">
-            <h2>Is Loading</h2>
+          <div className="posts-content">
+            <Nav categories={ this.state.categories } hidden={!this.state.showNav} />
+            <div id="posts" className="loading-posts">
+              <div className="true-center">
+                <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+              </div>
+            </div>
           </div>
         </div>
       );
