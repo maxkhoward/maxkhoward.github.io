@@ -16,6 +16,7 @@
         background-position: bottom right;
         position: relative;
         padding-bottom: 40px;
+        width: auto;
 
         &.full-post {
         }
@@ -27,6 +28,10 @@
           flex-direction: column;
           justify-content: center;
           padding-bottom: 40px;
+        }
+
+        @media screen and (max-width: 920px) {
+          background-size: 100%;
         }
       }
 

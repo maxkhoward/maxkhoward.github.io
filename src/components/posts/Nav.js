@@ -16,34 +16,31 @@ class Nav extends Component {
 
   renderNavLinks() {
     const navLinks = [];
-    console.log("Categories Length");
-    console.log(this.props.categories.length);
     for (var i=0; i < this.props.categories.length; i++) {
       navLinks.push(
-        <a
+        <NavLink
           className='navlink link'
           key={ i + 1 }
-          onClick={ this.setPath(this.props.categories[i].slug) }
+          to={ '/posts/' + this.props.categories[i].slug }
         >
           { this.props.categories[i].name }
-        </a>
+        </NavLink>
       );
     }
     navLinks.push(
-      <a
+      <NavLink
         className='navlink link'
         key={ 0 }
-        onClick={ this.setPath('') }
+        to={ '/posts/' }
       >
         { "All" }
-      </a>
+      </NavLink>
     )
     return (navLinks);
   }
 
   setPath(subPath) {
     return function () {
-      console.log("setting Path");
       history.push('/#/posts/' + subPath);
     }
   }

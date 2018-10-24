@@ -81,7 +81,6 @@ const SomeComponent = withRouter(({ location }) => (
         </CSSTransition>
       </TransitionGroup>
     </div>
-
 ))
 
 class Main extends Component {
@@ -103,11 +102,13 @@ class Main extends Component {
     ];
   }
 
-
+  componentDidMount() {
+    console.log("*******************************************************");
+    console.log("A (kinda) clean console, presented to you by Max Howard");
+    console.log("*******************************************************");
+  }
 
   render() {
-
-
     return (
 			<div>
 				<HashRouter>

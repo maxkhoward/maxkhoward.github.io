@@ -12,13 +12,13 @@ class Contact extends Component {
   }
 
   reveal(contactMethod) {
-    if (contactMethod == 'phone') {
+    if (contactMethod === 'phone') {
       this.setState({ showphone: !this.state.showphone });
     }
-    else if (contactMethod == 'mail') {
+    else if (contactMethod === 'mail') {
       this.setState({ showmail: !this.state.showmail });
     }
-    else if (contactMethod == 'twitter') {
+    else if (contactMethod === 'twitter') {
       this.setState({ showtwitter: !this.state.showtwitter });
     }
   }
@@ -32,27 +32,27 @@ class Contact extends Component {
         </div>
         <div className="contact-box">
           <div className="contact-method">
-            <i class="fas fa-phone" onClick={ () => this.reveal('phone') }></i>
+            <i className="fas fa-phone" onClick={ () => this.reveal('phone') }></i>
             { this.state.showphone ?
               <p className="contact-detail visible"><a className="link" href="tel:+1-778-245-0413">778-245-0413</a></p>
             :
-              <p className="contact-detail"><a className="link" href=""></a></p>
+              <p className="contact-detail"><a className="link" href="">XXX</a></p>
             }
           </div>
           <div className="contact-method">
-            <i class="fas fa-envelope" onClick={ () => this.reveal('mail') }></i>
+            <i className="fas fa-envelope" onClick={ () => this.reveal('mail') }></i>
             { this.state.showmail ?
               <p className="contact-detail visible"><a className="link" href="mailto:maxkhoward@gmail.com">maxkhoward@gmail.com</a></p>
             :
-              <p className="contact-detail"><a className="link" href=""></a></p>
+              <p className="contact-detail"><a className="link" href="">XXX</a></p>
             }
           </div>
           <div className="contact-method">
-            <i class="fab fa-twitter" onClick={ () => this.reveal('twitter') }></i>
+            <i className="fab fa-twitter" onClick={ () => this.reveal('twitter') }></i>
             { this.state.showtwitter ?
               <p className="contact-detail visible"><a className="link" target="new" href="https://twitter.com/maxkhoward">@maxkhoward</a></p>
             :
-              <p className="contact-detail"><a className="link" target="new" href=""></a></p>
+              <p className="contact-detail"><a className="link" target="new" href="">XXX</a></p>
             }
           </div>
         </div>

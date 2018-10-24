@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
-import {
-  Route,
-  Switch,
-  HashRouter
-} from "react-router-dom";
+import { Route } from "react-router-dom";
 import classNames from 'classnames';
 
 import Nav from "./Nav";
@@ -14,13 +9,6 @@ import Post from "./Post";
 const API = 'http://18.219.3.219/wp-json/wp/v2/';
 const CATEGORIES = 'categories';
 const POSTS = 'posts'
-
-let i = 0;
-
-function keyGen() {
-  i++
-  return (i);
-}
 
 class Posts extends Component {
   constructor(props) {
@@ -52,11 +40,12 @@ class Posts extends Component {
       .catch(function (err) {
         return err;
       });
+    window.scrollTo(0, 0);
   }
 
   renderCatRoutes(posts, showHidePosts) {
     const routes = [];
-    this.state.categories.map(function(cat, index){
+    this.state.categories.forEach(function(cat, index){
       routes.push(
         <Route
           key={ index + 1 }
@@ -83,13 +72,13 @@ class Posts extends Component {
   }
 
   showNav() {
-    if (this.state.categories != [] && this.state.posts != []){
+    if (this.state.categories !== [] && this.state.posts !== []){
       this.timeoutId = setTimeout(function () {
           this.setState({isLoading: false});
       }.bind(this), 300);
       this.timeoutId = setTimeout(function () {
           this.setState({showNav: true});
-          this.showHidePosts();
+          //this.showHidePosts();
       }.bind(this), 300);
     }
   }
@@ -103,7 +92,7 @@ class Posts extends Component {
 
   renderPostRoutes(posts, showHidePosts) {
     const routes = [];
-    posts.map(function(post, index){
+    posts.forEach(function(post, index){
       routes.push(
         <Route
           key={ index }

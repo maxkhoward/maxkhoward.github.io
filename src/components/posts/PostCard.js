@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Redirect } from 'react-router-dom';
 
-import { Router, Route, Link } from 'react-router-dom';
 import history from '../../history';
 
 class PostCard extends Component {
@@ -46,20 +45,17 @@ class PostCard extends Component {
   }
 
   showHidePosts() {
-    this.props.showHidePosts;
+
   }
 
   showPost() {
-    console.log("showPost");
-    this.showHidePosts();
+    //this.showHidePosts();
     history.push('/#/posts/' + this.props.postSlug);
     this.setState({ showPost: true });
   }
 
   render() {
-    console.log(this.state.showPost);
     if (this.state.showPost) {
-      console.log(history);
       return ( <Redirect to= {'/posts/' + this.props.postSlug } /> );
     }
     else
@@ -68,7 +64,7 @@ class PostCard extends Component {
           <div className={ this.getCardClassnames() } onClick={ this.showPost }>
             { this.props.postType === 'featured' ?
               <div className="post-card-content" style={ this.getBG(this.props.postImage) }>
-                <img className="post-image" src={this.props.postImage} />
+                <img className="post-image" src={this.props.postImage} alt="" />
                 <div className="post-card-info">
                   <h5>{ this.props.postTitle }</h5>
                   <p>{ this.props.postSummary }</p>
@@ -77,7 +73,7 @@ class PostCard extends Component {
               :
               <div className="post-card-content">
                 <div className="post-card-info">
-                  <img className="post-mini-image" src={this.props.postImage} />
+                  <img className="post-mini-image" src={this.props.postImage} alt="" />
                     <div className="title-elements">
                       <h5 className="post-title">{ this.props.postTitle }</h5>
                       <p className="small">{ this.props.postAuthor }</p>
@@ -101,18 +97,17 @@ class PostCard extends Component {
 }
 
 PostCard.propTypes = {
-  postID: PropTypes.string,
+  postID: PropTypes.number,
   postCategories: PropTypes.array,
   postTitle: PropTypes.string,
   postSlug: PropTypes.string,
-  postDate: PropTypes.instanceOf(Date),
+  postDate: PropTypes.string,
   postAuthor: PropTypes.string,
-  postContent: PropTypes.element,
+  postContent: PropTypes.string,
   postImage: PropTypes.string,
   postSummary: PropTypes.string,
-  postExcerpt: PropTypes.element,
-  postType: PropTypes.string,
-  showHidePosts: PropTypes.function
+  postExcerpt: PropTypes.string,
+  postType: PropTypes.string
 };
 
 export default PostCard;

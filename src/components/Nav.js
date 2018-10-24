@@ -15,7 +15,6 @@ class Nav extends Component {
   renderNavLinks() {
     const navLinks = [];
     for (var i=0; i < this.props.pages.length; i++) {
-      console.log(this.props.pages[i].slug)
       navLinks.push(
         <NavLink
           className='navlink link'
@@ -34,7 +33,7 @@ class Nav extends Component {
         <nav className="navigation">
           <div className="nav-left">
             <NavLink className="navlink link" to="/">
-              <img className="logo" src="https://i.imgur.com/Zu9tTw9.png" />
+              <img className="logo" src="https://i.imgur.com/Zu9tTw9.png" alt="Max Howard logo" />
             </NavLink>
           </div>
           <div className="nav-right">

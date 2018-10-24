@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import PostCard from './PostCard';
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 class Container extends Component {
   constructor(props){
@@ -20,10 +19,11 @@ class Container extends Component {
     const renderedPosts = [];
 
 
-    this.props.posts.map(function(post){
+    this.props.posts.forEach(function(post, i){
       if (post.categories.includes(catID) || catID === ""){
         renderedPosts.push(
           <PostCard
+            key = { i }
             postID = { post.id }
             postCategories = { post.categories }
             postTitle = { post.title.rendered }
@@ -68,9 +68,7 @@ class Container extends Component {
 Container.propTypes = {
   catName: PropTypes.string,
   catSlug: PropTypes.string,
-  catID: PropTypes.string,
-  posts: PropTypes.array,
-  showHidePosts: PropTypes.function
+  posts: PropTypes.array
 };
 
 export default Container;

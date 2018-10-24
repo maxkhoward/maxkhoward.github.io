@@ -2,16 +2,10 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import classNames from 'classnames'
 
-const API = 'https://hn.algolia.com/api/v1/search?query=';
-const DEFAULT_QUERY = 'redux';
-
 class About extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-    };
 
     this.skills = [
      {
@@ -82,11 +76,10 @@ class About extends Component {
   }
 
   render() {
-    const { hits, isLoading } = this.state;
     return (
       <div className="page-content about reg-page">
         <div className="page-title">
-          <img src="https://i.imgur.com/bDt72DE.jpg" className="profile-image" />
+          <img src="https://i.imgur.com/bDt72DE.jpg" className="profile-image" alt="Max Howard profile" />
           <h1>Max Howard</h1>
           <p className="subtitle">A British developer in Canada</p>
         </div>
@@ -136,7 +129,7 @@ class SkillList extends Component {
   }
 
   reveal(i) {
-    if (i == this.state.selectedElement)
+    if (i === this.state.selectedElement)
       this.setState({ selectedElement: null });
     else
       this.setState({ selectedElement: i });
@@ -151,9 +144,9 @@ class SkillList extends Component {
     this.props.skills.forEach((skill, i) => {
       skills.push(
         //<Skill show={ false } icon={ skill.icon } skillName={ skill.name } skillDescription={ skill.description } />
-        <div className={ classNames("skill", { "show": this.state.selectedElement == i }) } onClick={ () => this.reveal(i) }>
+        <div key={ i } className={ classNames("skill", { "show": this.state.selectedElement === i }) } onClick={ () => this.reveal(i) }>
           <i className={ classNames( skill.icon, "skill-icon") }></i>
-          <div className={ classNames("reveal", { "show": this.state.selectedElement == i }) }>
+          <div className={ classNames("reveal", { "show": this.state.selectedElement === i }) }>
             <i className="close fas fa-times"></i>
             <h4 className="reveal-title">{ skill.name }</h4>
             <p className="reveal-description">{ skill.description }</p>
@@ -167,7 +160,7 @@ class SkillList extends Component {
   render() {
     return (
       <div className="skills">
-        <img className="skills-note" src="https://i.imgur.com/CIq6rlr.png" />
+        <img className="skills-note" src="https://i.imgur.com/CIq6rlr.png" alt="click for more info" />
         { this.renderSkills() }
       </div>
     )
