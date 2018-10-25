@@ -19,6 +19,8 @@ gulp.task('sass', function() {
 });
 
 gulp.task('copy', function() {
-  gulp.src('build/**/*.*')
-  .pipe(gulp.dest('/'))
+  gulp.src('build/**/*.html')
+  .pipe(gulp.dest(''));
+  gulp.src('build/static/js/*.js')
+  .pipe(gulp.dest('static/js'));
 });
