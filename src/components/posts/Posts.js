@@ -33,7 +33,7 @@ class Posts extends Component {
       .catch(function (err) {
         return err;
       });
-    fetch(API + POSTS)
+    fetch(API + POSTS + '?per_page=100')
       .then(response => response.json())
       .then(data => this.setState({ posts: data }))
       .then(this.showNav())

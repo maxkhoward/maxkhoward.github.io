@@ -118,6 +118,8 @@ body {
     padding-left: 30px; }
   .navigation .nav-right {
     padding-right: 30px; }
+    .navigation .nav-right .navlink {
+      padding: 10px; }
   .navigation .navlink {
     margin: 0 10px;
     transition: color 0.3s; }
